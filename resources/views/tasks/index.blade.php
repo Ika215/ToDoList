@@ -63,6 +63,12 @@
                                 </td>
                                 <td class="p-0 text-right text-sm font-medium">
                                     <div class="flex justify-end">
+                                        <div class="inline-block text-center mt-auto mb-auto mr-3">
+                                            <p class="text-sm text-gray-500">投稿・編集した時間</p>
+                                            <div class="text-sm text-gray-500">
+                                                {{ $item->updated_at }}
+                                            </div>
+                                        </div>
                                         <div>
                                             <form action="/tasks/{{ $item->id }}" method="post" role="menuitem" tabindex="-1" class="inline-block text-gray-500 font-medium">
                                             @csrf
