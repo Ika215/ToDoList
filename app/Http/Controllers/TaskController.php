@@ -46,9 +46,10 @@ class TaskController extends Controller
     {
         $rules = [
             'task_name' => 'required|max:100',
+            'deadline_date' => 'after:now',
         ];
 
-        $messages = ['required' => '必須項目です', 'max' => '100文字以下にしてください。'];
+        $messages = ['required' => '必須項目です', 'max' => '100文字以下にしてください。', 'deadline_date' => '現在よりも後の日時を入力してください'];
         Validator::make($request->all(), $rules, $messages)->validate();
 
         //モデルをインスタンス化
@@ -56,6 +57,7 @@ class TaskController extends Controller
 
         //モデル->カラム名　=　値で、データを割り当てる
         $task->name = $request->input('task_name');
+        $task->deadline_at = $request->input('deadline_date');
 
         //データべ―スに保存
         $task->save();
