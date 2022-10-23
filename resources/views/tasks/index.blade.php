@@ -34,6 +34,16 @@
                 </div>
               @enderror
             </label>
+            <label class="mt-2">
+                <input type="datetime-local" name="deadline_date" class="block bg-white w-full border border-slate-300 rounded-md p-4  shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm">
+                @error('deadline_date')
+                    <div class="mt-3">
+                        <p class="text-red-500">
+                            {{ $message }}
+                        </p>
+                    </div>
+                @enderror
+            </label>
             <button type="submit" class="mt-8 p-4 bg-slate-800 text-white w-full max-w-xs hover:bg-slate-900 transition-colors">
               追加する
             </button>
@@ -64,9 +74,9 @@
                                 <td class="p-0 text-right text-sm font-medium">
                                     <div class="flex justify-end">
                                         <div class="inline-block text-center mt-auto mb-auto mr-3">
-                                            <p class="text-sm text-gray-500">投稿・編集した時間</p>
+                                            <p class="text-sm text-gray-500">期日</p>
                                             <div class="text-sm text-gray-500">
-                                                {{ $item->updated_at }}
+                                                {{ $item->deadline_at }}
                                             </div>
                                         </div>
                                         <div>
